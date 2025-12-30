@@ -123,7 +123,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👥 Authors
 
 - **Anukrit** - *Developer* - [Anukrit4412](https://github.com/Anukrit4412)
-- **Team Members**: Sanidhya Kafle, Mukesh, Binod, Sumit
 
 ## 🙏 Acknowledgments
 
