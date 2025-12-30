@@ -868,3 +868,22 @@ body {
 .aboutus_card .card__link:hover {
   background-color: #444;
 }
+
+/* Responsive styles for cart and navbar */
+@media (max-width: 768px) {
+  #navbar {
+    flex-direction: column;
+    padding: 10px;
+  }
+  #navbar ul {
+    margin-top: 10px;
+  }
+  #cart-icon {
+    font-size: 24px !important;
+    margin-left: 10px;
+  }
+  #cart-count {
+    font-size: 10px !important;
+    padding: 1px 4px !important;
+  }
+}

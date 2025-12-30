@@ -155,6 +155,9 @@
             <a href="#loginbo">
                 <input class="search" onclick="showlogin()" type="button" value="LogIn">
             </a>
+            <div id="cart-icon" style="position: relative; margin-left: 20px; cursor: pointer; font-size: 28px;" onclick="window.location='checkout.html'">
+                🛒 <span id="cart-count" style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px;">0</span>
+            </div>
         </nav>
 
         <!-- Screenshot comparison section -->
@@ -282,6 +285,12 @@
         document.querySelector(".loginform").addEventListener("click", (e) => {
             e.stopPropagation()
         })
+
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').textContent = cart.length;
+        }
+        updateCartCount();
     </script>
 
     <!--footer section-->
