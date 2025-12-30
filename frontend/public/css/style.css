@@ -688,23 +688,65 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  height: 100vh;
   font-family: 'Jost', sans-serif;
-  background-color: rgba(0, 0, 50, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
-  position: absolute;
+  position: fixed;
   top: 0;
-  width: 100vw;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
 
 }
 
 .loginform {
   width: 350px;
   height: 500px;
-  background: red;
+  background: white;
   overflow: hidden;
-  background: #101820;
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
+}
+
+/* Responsive styles for login form */
+@media (max-width: 768px) {
+  .loginform {
+    width: 90%;
+    max-width: 350px;
+    height: auto;
+    min-height: 500px;
+  }
+  .loginform label {
+    font-size: 2em;
+    margin: 40px;
+  }
+  .loginform input {
+    width: 80%;
+  }
+  .loginform button {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .loginform {
+    width: 95%;
+    border-radius: 5px;
+  }
+  .loginform label {
+    font-size: 1.8em;
+    margin: 30px;
+  }
+  .loginform input {
+    width: 85%;
+    padding: 8px;
+  }
+  .loginform button {
+    width: 85%;
+    height: 35px;
+  }
 }
 
 .loginform #chk {
@@ -718,7 +760,7 @@ body {
 }
 
 .loginform label {
-  color: #fff;
+  color: #000;
   font-size: 2.3em;
   justify-content: center;
   display: flex;
@@ -765,7 +807,7 @@ body {
 
 .loginform .login {
   height: 460px;
-  background: #eee;
+  background: white;
   border-radius: 60% / 10%;
   transform: translateY(-180px);
   transition: .8s ease-in-out;

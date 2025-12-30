@@ -127,10 +127,37 @@
             <a href="#loginbo">
                 <input class="search" onclick="showlogin()" type="button" value="LogIn">
             </a>
-            <div id="cart-icon" style="position: relative; margin-left: 20px; cursor: pointer; font-size: 28px;" onclick="window.location='pages/checkout.html'">
-                🛒 <span id="cart-count" style="background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px;">0</span>
+            <div id="cart-icon" style="display: flex; align-items: center; margin-left: 20px; cursor: pointer;"
+                onclick="showModal()">
+                <div style="position: relative; font-size: 28px;">
+                    🛒 <span id="cart-count"
+                        style="position: absolute; top: -5px; right: -10px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px;">0</span>
+                </div>
+                <span id="nav-cart-total"
+                    style="font-size: 16px; margin-left: 10px; color: white; font-weight: bold;">Rs. 0</span>
             </div>
         </nav>
+        <!-- Cart Modal -->
+        <div id="cart-modal"
+            style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
+            <div
+                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); width: 100%; max-width: 600px; box-sizing: border-box; position: relative; overflow: hidden; color: #333;">
+                <div style="background: #fff; padding: 20px; border-radius: 10px;">
+                    <h3 style="text-align: center; color: #333; margin-bottom: 20px; font-size: 2em;">Shopping Cart</h3>
+                    <div id="cart-items" style="max-height: 300px; overflow-y: auto; margin-bottom: 20px;"></div>
+                    <p id="cart-total"
+                        style="font-weight: bold; color: #28a745; margin: 10px 0; text-align: center; font-size: 1.2em;">
+                        <strong>Total: Rs. 0</strong>
+                    </p>
+                    <div style="text-align: center;">
+                        <button onclick="closeModal()"
+                            style="background: #6c757d; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-right: 10px;">Close</button>
+                        <button onclick="window.location='pages/checkout.html'"
+                            style="background: linear-gradient(45deg, #28a745, #20c997); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: bold;">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Home section -->
         <section id="home">
             <h1 class="h-primary center">Welcome to Print World</h1>
@@ -347,7 +374,6 @@
     </div>
 
 
-    <!-- JavaScript for the login form popup -->
     <script>
         let loginbo = document.querySelector(".loginbo")
         function showlogin() {
@@ -362,12 +388,199 @@
             e.stopPropagation()
         })
 
+        function validation(event) {
+            event.preventDefault();
+            let username = document.getElementById('username').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            if (username === '' || email === '' || password === '') {
+                alert('All fields are required');
+                return false;
+            }
+            if (!email.includes('@')) {
+                alert('Invalid email');
+                return false;
+            }
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters');
+                return false;
+            }
+            // Store user
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            let existing = users.find(u => u.email === email);
+            if (existing) {
+                alert('Email already registered');
+                return false;
+            }
+            users.push({ username, email, password });
+            localStorage.setItem('users', JSON.stringify(users));
+
+            // Auto-login after signup
+            alert('Signup successful');
+            let newUser = { username, email, password };
+            localStorage.setItem('loggedInUser', JSON.stringify(newUser));
+
+            document.querySelector('.loginbo').style.display = 'none';
+            document.body.style.overflow = 'scroll';
+            updateNavbar();
+
+            document.getElementById('chk').checked = false;
+            return false;
+        }
+
+        function valid(event) {
+            event.preventDefault();
+            let email = document.getElementById('logemail').value;
+            let password = document.getElementById('logpass').value;
+            if (email === '' || password === '') {
+                alert('All fields are required');
+                return false;
+            }
+            // Check for admin/CSIT login
+            if ((email.toLowerCase() === 'admin' && password.toLowerCase() === 'admin') ||
+                (email === 'csit@example.com' && password === 'admin123')) {
+
+                alert('Admin login successful');
+                localStorage.setItem('loggedInUser', JSON.stringify({ username: 'CSIT', email: email, isAdmin: true }));
+                document.querySelector('.loginbo').style.display = 'none';
+                document.body.style.overflow = 'scroll';
+                updateNavbar();
+                return false;
+            }
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            let user = users.find(u => u.email === email && u.password === password);
+            if (user) {
+                alert('Login successful');
+                localStorage.setItem('loggedInUser', JSON.stringify(user));
+                document.querySelector('.loginbo').style.display = 'none';
+                document.body.style.overflow = 'scroll';
+                updateNavbar();
+                return false;
+            } else {
+                alert('Invalid email or password');
+                return false;
+            }
+            return false;
+        }
+
+        function updateNavbar() {
+            let user = JSON.parse(localStorage.getItem('loggedInUser'));
+            if (user) {
+                let loginBtn = document.querySelector('input.search');
+                if (user.isAdmin) {
+                    loginBtn.value = 'CSIT logged in';
+                    loginBtn.onclick = () => logout();
+                    loginBtn.style.background = 'green';
+                } else {
+                    loginBtn.value = `Welcome, ${user.username}`;
+                    // Redirect to User Dashboard instead of logout
+                    loginBtn.onclick = () => {
+                        window.location.href = 'pages/user_dashboard.html';
+                    };
+                    loginBtn.style.background = 'blue';
+                }
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('loggedInUser');
+            location.reload();
+        }
+
         function updateCartCount() {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            let totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             document.getElementById('cart-count').textContent = totalItems;
+
+            // Update total in navbar
+            let navTotal = document.getElementById('nav-cart-total');
+            if (navTotal) {
+                navTotal.textContent = 'Rs. ' + totalPrice.toLocaleString();
+            }
         }
         updateCartCount();
+        updateNavbar();
+
+        function showModal() {
+            populateCart();
+            document.getElementById('cart-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('cart-modal').style.display = 'none';
+        }
+
+        function populateCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let itemsDiv = document.getElementById('cart-items');
+            itemsDiv.innerHTML = '';
+            let total = 0;
+            if (cart.length === 0) {
+                itemsDiv.innerHTML = '<p style="text-align: center; color: #666; font-style: italic;">Your cart is empty.</p>';
+                document.getElementById('cart-total').innerHTML = '<strong>Total: Rs. 0</strong>';
+                return;
+            }
+            let table = document.createElement('table');
+            table.style.cssText = 'width: 100%; border-collapse: collapse; margin-bottom: 20px;';
+            table.innerHTML = `
+                <thead>
+                    <tr style="background: #f8f9fa; border-bottom: 2px solid #dee2e6;">
+                        <th style="padding: 10px; text-align: left; font-weight: bold; color: #333;">Product</th>
+                        <th style="padding: 10px; text-align: center; font-weight: bold; color: #333;">Price</th>
+                        <th style="padding: 10px; text-align: center; font-weight: bold; color: #333;">Quantity</th>
+                        <th style="padding: 10px; text-align: center; font-weight: bold; color: #333;">Subtotal</th>
+                        <th style="padding: 10px; text-align: center; font-weight: bold; color: #333;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            `;
+            let tbody = table.querySelector('tbody');
+            cart.forEach((item, index) => {
+                let row = document.createElement('tr');
+                row.style.cssText = 'border-bottom: 1px solid #dee2e6;';
+                row.innerHTML = `
+                    <td style="padding: 10px; font-weight: bold; color: #333;">${item.name}</td>
+                    <td style="padding: 10px; text-align: center; color: #666;">Rs. ${item.price}</td>
+                    <td style="padding: 10px; text-align: center;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+                            <button onclick="changeQuantity(${index}, -1)" style="background: #dc3545; color: white; border: none; width: 25px; height: 25px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px;">−</button>
+                            <span style="min-width: 30px; text-align: center;">${item.quantity}</span>
+                            <button onclick="changeQuantity(${index}, 1)" style="background: #28a745; color: white; border: none; width: 25px; height: 25px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px;">+</button>
+                        </div>
+                    </td>
+                    <td style="padding: 10px; text-align: center; font-weight: bold; color: #28a745;">Rs. ${item.price * item.quantity}</td>
+                    <td style="padding: 10px; text-align: center;">
+                        <button onclick="removeItem(${index})" style="background: #6c757d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">Remove</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+                total += item.price * item.quantity;
+            });
+            itemsDiv.appendChild(table);
+            document.getElementById('cart-total').innerHTML = `<strong>Total: Rs. ${total}</strong>`;
+        }
+
+        function changeQuantity(index, delta) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart[index].quantity += delta;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            populateCart();
+            updateCartCount();
+        }
+
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            populateCart();
+            updateCartCount();
+        }
     </script>
 
 

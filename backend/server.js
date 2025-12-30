@@ -162,6 +162,27 @@ app.get('/failure', (req, res) => {
   res.send('Payment failed or canceled.');
 });
 
+
+
+// Login endpoint
+app.post('/api/login', (req, res) => {
+  const { email, password } = req.body;
+  console.log('Login attempt:', { email, password }); // Log the received credentials
+
+  // Hardcoded credentials for demonstration
+  const validEmail = 'csit@example.com';
+  const validPassword = 'admin123';
+
+  if (email === validEmail && password === validPassword) {
+    // Generate a mock token
+    const token = crypto.randomBytes(16).toString('hex');
+    res.json({ token: token, message: 'Login successful' });
+  } else {
+    console.log('Login failed: Invalid credentials');
+    res.status(401).send('invalid email or password');
+  }
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
