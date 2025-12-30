@@ -638,7 +638,12 @@
             let priceText = content.querySelector('h6').textContent;
             let price = parseFloat(priceText.replace('Rs.', '').replace('/-', '').replace(',', '').trim());
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push({name, price});
+            let existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({name, price, quantity: 1});
+            }
             localStorage.setItem('cart', JSON.stringify(cart));
             showToast('Added to Cart');
             updateCartCount();
@@ -658,7 +663,8 @@
 
         function updateCartCount() {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            document.getElementById('cart-count').textContent = cart.length;
+            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalItems;
         }
 
 

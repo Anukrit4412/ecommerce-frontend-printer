@@ -158,8 +158,8 @@
         let itemsTotal = 0;
         let summary = '<h3>Cart Summary</h3><ul>';
         cart.forEach(item => {
-            summary += `<li>${item.name} - Rs. ${item.price}</li>`;
-            itemsTotal += item.price;
+            summary += `<li>${item.name} x${item.quantity} - Rs. ${item.price * item.quantity}</li>`;
+            itemsTotal += item.price * item.quantity;
         });
         summary += `</ul><p id="total-display"><strong>Total: Rs. ${itemsTotal}</strong></p>`;
         document.getElementById('cart-summary').innerHTML = summary;
