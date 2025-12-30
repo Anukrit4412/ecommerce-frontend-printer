@@ -1,0 +1,351 @@
+<html>
+
+<head>
+    <!-- Meta tags for SEO and page information -->
+    <meta name="description" content="Research Page of PrintWorld"> <!-- meta tag used-->
+    <meta name="keywords" content="Research Page of PrintWorld">
+    <meta name="author" content="Sanidhya Kafle">
+    <title>Print World</title>
+
+    <!-- Linking external stylesheet -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/script.js"></script>
+
+    <!-- Internal styles for specific elements -->
+    <style>
+        /* Styles for the logo */
+        #logo {
+            margin-left: 34px;
+            zoom: 0.8;
+        }
+
+        #logo img {
+            margin: 3px 6px;
+        }
+
+        .logo {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        /* Styles for the navigation bar */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            height: auto;
+            width: 100%;
+            align-items: center;
+            position: fixed;
+            top: 0px;
+            z-index: 3;
+            font-family: 'Quicksand', sans-serif;
+            padding: 10px;
+        }
+
+        #navbar ul {
+            display: flex;
+        }
+
+        #navbar ul li {
+            list-style: none;
+            font-size: 1.5rem;
+        }
+
+        #navbar ul li a {
+            display: block;
+            padding: 3px 30px;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.811);
+            border-radius: 12px;
+            height: 30px;
+            transition: all 0.2s;
+        }
+
+        #navbar ul li a:hover {
+            color: rgb(255, 255, 255);
+            scale: 1.2;
+
+        }
+
+        /* Background styling for navbar */
+        #navbar::before {
+            content: "";
+            background-color: black;
+            height: 100%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* Styles for search button */
+        .search {
+            background: transparent;
+            outline: none;
+            padding: 10px 30px;
+            margin-right: 50px;
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: rgb(0, 0, 0);
+            box-shadow: 3px 3px 0px white;
+            transition: all 0.2s;
+
+        }
+
+        .search:hover {
+            color: white;
+            box-shadow: 0px 0px 0px;
+
+        }
+
+        /* Body styling */
+        body {
+            background-color: rgb(216, 215, 214);
+
+        }
+
+        /* Image section styling */
+        .Shree {
+            display: flex;
+            margin-top: 40px;
+
+
+        }
+
+        .Lame {
+            margin: 10px 40px;
+            flex: 50%;
+            text-align: center;
+            height: 300px;
+
+        }
+
+        .Lame img {
+            height: 100%;
+            width: 80%;
+            object-fit: contain;
+
+
+        }
+    </style>
+</head>
+<!-- Body of the HTML document -->
+
+<body>
+    <!-- Main container for the entire page -->
+    <div class="rmain">
+        <nav id="navbar">
+            <div id="logo">
+                <img src="../images/logo.png" class="logo">
+                <!-- logo of our website -->
+            </div>
+            <ul>
+                <!-- listing menus in the navbar -->
+                <li><a href="../home.html"><b>Home</b></a></li>
+                <li><a href="../html/products.html"><b>Products</b></a></li>
+                <li><a href="../html/research.html"><b>Research</b></a></li>
+                <li><a href="../html/aboutus.html"><b>About Us</b></a></li>
+                <li><a href="../html/blog.html"><b>Blog</b></a></li>
+
+            </ul>
+            <a href="#loginbo">
+                <input class="search" onclick="showlogin()" type="button" value="LogIn">
+            </a>
+        </nav>
+
+        <!-- Screenshot comparison section -->
+        <section class="one">
+            <!-- In this section we have used reference images and their implemenatation in our websites using proper allocated div heights and widths -->
+            <div class="Erdd"
+                style="width:100%;margin-top :150px; padding-bottom: 50px; text-align: center; font-size: 18px;  background-color: rgb(216, 215, 214)">
+                <h1>
+                    The Screenshots on the Left Represents The Reference Websites That I have Taken
+                    While On the Right Represents The Implementation of It In Our Websites.</h1>
+                <div class="Shree">
+                    <div class="Lame"><img src="../images/navbar.png"></div>
+                    <div class="Lame"><img src="../images/navbar1.png"></div>
+                </div>
+                <span>This navbar section idea was taken from <a
+                        href="https://ullens.edu.np/">https://ullens.edu.np/</a> website.</span>
+                <div class="Shree">
+                    <div class="Lame"><img src="../images/products.png"></div>
+                    <div class="Lame"><img src="../images/products1.png"></div>
+                </div>
+                <span>The Product details Was Adopted From <a
+                        href=" https://in.canon/en/consumer/products/search?category=printing&subCategory=inkjet-printers">https://in.canon/en/consumer/products/search?category=printing&subCategory=inkjet-printers</a>
+
+                    website.</span>
+                <div class="Shree">
+                    <div class="Lame"><img src="../images/sub headings.png"></div>
+                    <div class="Lame"><img src="../images/subheadings1.png"></div>
+                </div>
+                <span>The Subheading Idea Was Inherited From <a
+                        href="https://islington.edu.np/programmes">https://islington.edu.np/programmes</a>
+                    website.</span>
+                <div class="Shree">
+                    <div class="Lame"><img src="../images/upcoming.png"></div>
+                    <div class="Lame"><img src="../images/upcoming1.png"></div>
+                </div>
+                <span> This Upcoming Products Image Concept Was Extracted From <a
+                        href="https://www.wix.com/">https://www.wix.com/</a>
+
+                    website.</span>
+                <div class="Shree">
+                    <div class="Lame"><img src="../images/footer.png"></div>
+                    <div class="Lame"><img src="../images/footer1.png"></div>
+                </div>
+                <span> The Idea of footer section was taken from <a
+                        href="https://ictframe.com/top-10-most-popular-nepali-blogs/">https://ictframe.com/top-10-most-popular-nepali-blogs/</a>
+                    website</span>
+            </div>
+        </section>
+    </div>
+
+    <!-- Newsletter section -->
+    <section class="Five">
+        <!-- Newsletters features are present in this section -->
+        <div class="Signup" style="height: 200px; padding:80px;">
+            <div style=" float:left;font-family: 'Quicksand', sans-serif;">
+                <h1><span style="color:rgb(74, 159, 131);">Subscribe As Soon </span>As Possible</h1><br>
+                <H2>Get Recent Updates about our Products and<span style="color:brown;"><br>Win Discount Vouchers</span>
+                </H2><br>
+                <h3>Drop Down Your Email...!!</h3>
+            </div>
+
+            <div style="float: right; padding-top:60px;">
+                <p style="font-size:20px; font-family: 'Quicksand', sans-serif;"><b>Get Freshout News About Our
+                        Products</b></p><br>
+                <form id="myForm" style="display: flex; justify-content: flex-end;">
+                    <!-- Forms tag is used here -->
+                    <span id=""></span>
+                    <input
+                        style="width:300px; padding: 11px; outline: none; border: none; border-bottom: 2px solid black;"
+                        type="text" id="Email" placeholder="Type Your Email Here...">
+                    <button class="sub"
+                        style=" cursor:pointer; padding: 12px 30px; width:140px; outline: none; border: 2px solid black; font-family: 'Quicksand', sans-serif;  margin-left: -15px; transition: all 0.6s;">
+                        <h4><a name="Subscribe">Subscribe</a></h4>
+                    </button>
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+    <!-- Login box -->
+    <div class="loginbo" id="loginbo">
+        <div class="loginform">
+            <input type="checkbox" id="chk" aria-hidden="true">
+            <!-- Signup form -->
+            <div class="signup">
+                <form name="ContactsForms" class="signin" onsubmit=" validation(event)">
+                    <label for="chk" aria-hidden="true">Sign up</label>
+                    <input type="text" name="txt" id="username" placeholder="User name">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                    <input type="password" name="pswd" id="password" placeholder="Password">
+                    <button type="sumbit">Sign up</button>
+                </form>
+            </div>
+
+            <!-- Login form -->
+            <div class="login">
+                <form name="LContactsForms" onsubmit="valid(event)">
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <input type="email" id="logemail" placeholder="Email">
+                    <input type="password" id="logpass" placeholder="Password">
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for the interactive elements -->
+    <script>
+        let loginbo = document.querySelector(".loginbo")
+        function showlogin() {
+            loginbo.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+        loginbo.addEventListener("click", () => {
+            loginbo.style.display = "none";
+            document.body.style.overflow = "scroll";
+        })
+        document.querySelector(".loginform").addEventListener("click", (e) => {
+            e.stopPropagation()
+        })
+    </script>
+
+    <!--footer section-->
+    <footer>
+        <!-- Footer section starts here -->
+        <div style=" color:whitesmoke;padding-bottom: 30px; background-color:rgb(0, 0, 0); display:flex;">
+
+            <div class="rent">
+                <h4 class="footerh"> About Us</h4>
+                <!-- Allocation of h4 tag -->
+                <p style="margin-top: 60px;">
+                    Print World is all about giving updates of Newly Available Printers and Selling Products based on
+                    those updates. We also sell Printers that have market demands holding over long time.We also
+                    maintain plethora supply of Printers.
+                    People are being Sophiscated day to day so we have a freeshipping services to the customer doors as
+                    well but it is limited upto Valley Areas.
+                    Out of Valley, We charge a shipping costs on the basis of locations.
+                </p>
+
+            </div>
+
+            <!-- Address section in the footer -->
+            <div class="rent">
+                <h4 class="footerh">Address</h4>
+                <p style="margin-top: 30px;">
+                    <span style="padding-left:10px;">We are located at</span><br>
+                    1. Ganesh Chowk,Budhanilkantha near IME <br>
+                    2. Bhatbhateni, Chakrapath<br>
+                    3. StarMall ,Putalisadak <br>
+                    4. Dilibazar on the east of Global Consultancy<br>
+                    5. Maitighar<br>
+                    6. DurbarMarg nearby Narayanhiti Palace<br>
+                    7. Jamal side around Delicious Momo Pasal<br>
+                </p>
+
+
+            </div>
+
+            <!-- Overview section in the footer -->
+            <div class="rent">
+                <h4 class="footerh">Overview</h4>
+                <a href="../home.html">Home</a>
+                <a href="../html/products.html">Products</a>
+                <a href="../html/blog.html">Blog</a>
+                <a href="../html/research.html">Research</a>
+                <a href="../html/contacts.html">Contacts</a>
+            </div>
+
+            <!-- Follow Us section in the footer -->
+            <div class="rent">
+                <h4 class="footerh">Follow Us</h4>
+                <div style="margin-top: 50px; display: flex; flex-direction: column;">
+                    <a href="https://www.facebook.com/">Facebook</a>
+                    <a href="https://www.instagram.com/?hl=en">Instagram</a>
+                    <a href="https://twitter.com/i/flow/login">Twitter</a>
+                    <a href="https://www.whatsapp.com/">WhatsApps</a>
+                    <a href="https://www.viber.com/en/">Viber</a>
+                    <a href="https://np.linkedin.com/">LinkedIn</a>
+                    <a href="https://www.youtube.com/">YouTube</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>

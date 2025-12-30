@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for SEO purposes -->
+    <meta name="description" content="About Us Page of PrintWorld"> <!-- meta tag used-->
+    <meta name="keywords" content="About US of PrintWorld">
+    <meta name="author" content="Sanidhya Kafle">
+    <!-- Title of the webpage -->
+    <title>Print World</title>
+
+    <!-- Linking external CSS and JS -->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/script.js"></script>
+    <style>
+        /* Styles for the logo */
+        #logo {
+            margin-left: 34px;
+            zoom: 0.8;
+        }
+
+        #logo img {
+            margin: 3px 6px;
+        }
+
+        .logo {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        /* Styles for the navigation bar */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            height: auto;
+            width: 100%;
+            align-items: center;
+            position: fixed;
+            top: 0px;
+            z-index: 3;
+            font-family: 'Quicksand', sans-serif;
+            padding: 10px;
+        }
+
+        #navbar ul {
+            display: flex;
+        }
+
+        #navbar ul li {
+            list-style: none;
+            font-size: 1.5rem;
+        }
+
+        #navbar ul li a {
+            display: block;
+            padding: 3px 30px;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.811);
+            border-radius: 12px;
+            height: 30px;
+            transition: all 0.2s;
+        }
+
+        #navbar ul li a:hover {
+            color: rgb(255, 255, 255);
+            scale: 1.2;
+
+        }
+
+        /* Background styling for navbar */
+        #navbar::before {
+            content: "";
+            background-color: black;
+            height: 100%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* Styles for search button */
+        .search {
+            background: transparent;
+            outline: none;
+            padding: 10px 30px;
+            margin-right: 50px;
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: rgb(0, 0, 0);
+            box-shadow: 3px 3px 0px white;
+            transition: all 0.2s;
+
+        }
+
+        .about_us {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .about_us h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .about_us p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 20px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #ffeb3b;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main navigation bar -->
+    <div class="amain">
+        <nav id="navbar">
+            <div id="logo">
+                <img src="../images/logo.png" class="logo">
+                <!-- logo of our website -->
+            </div>
+            <ul>
+                <!-- listing menus in the navbar -->
+                <li><a href="../index.html"><b>Home</b></a></li>
+                <li><a href="products.html"><b>Products</b></a></li>
+                <li><a href="research.html"><b>Research</b></a></li>
+                <li><a href="aboutus.html"><b>About Us</b></a></li>
+                <li><a href="blog.html"><b>Blog</b></a></li>
+
+            </ul>
+            <!-- Login button -->
+            <a href="#loginbo">
+                <input class="search" onclick="showlogin()" type="button" value="LogIn">
+            </a>
+        </nav>
+        <div class="about_us">
+            <h1>About Print World</h1>
+            <p>Welcome to <span class="highlight">Print World</span>! This is a 6th semester BSCSIT project developed by our dedicated team. Our main motto is to sell high-quality printers under the company name <span class="highlight">Print World</span>, providing customers with the best printing solutions and innovative technology to meet their everyday needs.</p>
+            <p>At <span class="highlight">Print World</span>, we are committed to offering a wide range of printers that combine performance, reliability, and affordability. Whether you're looking for compact laser printers for home use or advanced duplex models for business, we have something for everyone. Our goal is to make printing accessible and efficient for all.</p>
+        </div>
+    </div>
+
+    <!-- Section for newsletter subscription -->
+    <section class="Five">
+        <!-- Newsletters features are present in this section -->
+        <div class="Signup" style="height: 200px; padding:80px;">
+            <div style=" float:left;font-family: 'Quicksand', sans-serif;">
+                <h1><span style="color:rgb(74, 159, 131);">Subscribe As Soon </span>As Possible</h1><br>
+                <H2>Get Recent Updates about our Products and<span style="color:brown;"><br>Win Discount Vouchers</span>
+                </H2><br>
+                <h3>Drop Down Your Email...!!</h3>
+            </div>
+
+            <div style="float: right; padding-top:60px;">
+                <p style="font-size:20px; font-family: 'Quicksand', sans-serif;"><b>Get Freshout News About Our
+                        Products</b></p><br>
+                <form id="myForm" style="display: flex; justify-content: flex-end;">
+                    <!-- Forms tag is used here -->
+                    <span id=""></span>
+                    <input
+                        style="width:300px; padding: 11px; outline: none; border: none; border-bottom: 2px solid black;"
+                        type="text" id="Email" placeholder="Type Your Email Here...">
+                    <button class="sub"
+                        style=" cursor:pointer; padding: 12px 30px; width:140px; outline: none; border: 2px solid black; font-family: 'Quicksand', sans-serif;  margin-left: -15px; transition: all 0.6s;">
+                        <h4><a name="Subscribe">Subscribe</a></h4>
+                    </button>
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+    <!-- Login form popup -->
+    <div class="loginbo" id="loginbo">
+        <div class="loginform">
+            <input type="checkbox" id="chk" aria-hidden="true">
+            <!-- Signup form -->
+            <div class="signup">
+                <form name="ContactsForms" class="signin" onsubmit=" validation(event)">
+                    <label for="chk" aria-hidden="true">Sign up</label>
+                    <input type="text" name="txt" id="username" placeholder="User name">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                    <input type="password" name="pswd" id="password" placeholder="Password">
+                    <button type="sumbit">Sign up</button>
+                </form>
+            </div>
+
+            <!-- Login form -->
+            <div class="login">
+                <form name="LContactsForms" onsubmit="valid(event)">
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <input type="email" id="logemail" placeholder="Email">
+                    <input type="password" id="logpass" placeholder="Password">
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript for the login form popup -->
+    <script>
+        let loginbo = document.querySelector(".loginbo")
+        function showlogin() {
+            loginbo.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+        loginbo.addEventListener("click", () => {
+            loginbo.style.display = "none";
+            document.body.style.overflow = "scroll";
+        })
+        document.querySelector(".loginform").addEventListener("click", (e) => {
+            e.stopPropagation()
+        })
+    </script>
+
+
+    <!-- Footer section starts here -->
+    <footer>
+        <!-- Footer section starts here -->
+        <div style=" color:whitesmoke;padding-bottom: 30px; background-color:rgb(0, 0, 0); display:flex;">
+
+            <div class="rent">
+                <h4 class="footerh"> About Us</h4>
+                <!-- Allocation of h4 tag -->
+                <p style="margin-top: 60px;">
+                    Welcome to Print World! This is a 6th semester BSCSIT project developed by our dedicated team. Our main motto is to sell high-quality printers under the company name Print World, providing customers with the best printing solutions and innovative technology to meet their everyday needs.
+                </p>
+
+            </div>
+
+            <!-- Address section in the footer -->
+            <div class="rent">
+                <h4 class="footerh">Address</h4>
+                <p style="margin-top: 30px;">
+                    <span style="padding-left:10px;">We are located at</span><br>
+                    1. Ganesh Chowk,Budhanilkantha near IME <br>
+                    2. Bhatbhateni, Chakrapath<br>
+                    3. StarMall ,Putalisadak <br>
+                    4. Dilibazar on the east of Global Consultancy<br>
+                    5. Maitighar<br>
+                    6. DurbarMarg nearby Narayanhiti Palace<br>
+                    7. Jamal side around Delicious Momo Pasal<br>
+                </p>
+
+
+            </div>
+
+            <!-- Overview section in the footer -->
+            <div class="rent">
+                <h4 class="footerh">Overview</h4>
+                <a href="../index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="blog.html">Blog</a>
+                <a href="research.html">Research</a>
+                <a href="contacts.html">Contacts</a>
+            </div>
+
+            <!-- Follow Us section in the footer -->
+            <div class="rent">
+                <h4 class="footerh">Follow Us</h4>
+                <div style="margin-top: 50px; display: flex; flex-direction: column;">
+                    <a href="https://www.facebook.com/">Facebook</a>
+                    <a href="https://www.instagram.com/?hl=en">Instagram</a>
+                    <a href="https://twitter.com/i/flow/login">Twitter</a>
+                    <a href="https://www.whatsapp.com/">WhatsApps</a>
+                    <a href="https://www.viber.com/en/">Viber</a>
+                    <a href="https://np.linkedin.com/">LinkedIn</a>
+                    <a href="https://www.youtube.com/">YouTube</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>

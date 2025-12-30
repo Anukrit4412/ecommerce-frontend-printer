@@ -1,0 +1,430 @@
+<html>
+
+<head>
+    <!-- Meta tags for SEO and page information -->
+    <meta name="description" content="Home Page of PrintWorld"> <!-- meta tag used-->
+    <meta name="keywords" content="Landing Page of PrintWorld">
+    <meta name="author" content="Sanidhya Kafle">
+    <title>Print World</title>
+
+
+    <!-- Linking external script and stylesheet -->
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Internal styles for specific elements -->
+    <style>
+        /* Styles for the logo */
+        #logo {
+            margin-left: 34px;
+            zoom: 0.8;
+        }
+
+        #logo img {
+            margin: 3px 6px;
+        }
+
+        .logo {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        /* Styles for the navigation bar */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            height: auto;
+            width: 100%;
+            align-items: center;
+            position: fixed;
+            top: 0px;
+            z-index: 3;
+            font-family: 'Quicksand', sans-serif;
+            padding: 10px;
+        }
+
+        #navbar ul {
+            display: flex;
+        }
+
+        #navbar ul li {
+            list-style: none;
+            font-size: 1.5rem;
+        }
+
+        #navbar ul li a {
+            display: block;
+            padding: 3px 30px;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.811);
+            border-radius: 12px;
+            height: 30px;
+            transition: all 0.2s;
+        }
+
+        #navbar ul li a:hover {
+            color: rgb(255, 255, 255);
+            scale: 1.2;
+
+        }
+
+        /* Background styling for navbar */
+        #navbar::before {
+            content: "";
+            background-color: black;
+            height: 100%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* Styles for search button */
+        .search {
+            background: transparent;
+            outline: none;
+            padding: 10px 30px;
+            margin-right: 50px;
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: rgb(0, 0, 0);
+            box-shadow: 3px 3px 0px white;
+            transition: all 0.2s;
+
+        }
+
+        .search:hover {
+            color: white;
+            box-shadow: 0px 0px 0px;
+
+        }
+    </style>
+</head>
+
+<!-- Body of the HTML document -->
+
+<body>
+    <div class="main">
+        <!-- Navigation bar section -->
+        <nav id="navbar">
+            <div id="logo">
+                <img src="images/logo.png" class="logo">
+                <!-- logo of our website -->
+            </div>
+            <ul>
+                <!-- listing menus in the navbar -->
+                <li><a href="index.html"><b>Home</b></a></li>
+                <li><a href="pages/products.html"><b>Products</b></a></li>
+                <li><a href="pages/research.html"><b>Research</b></a></li>
+                <li><a href="pages/aboutus.html"><b>About Us</b></a></li>
+                <li><a href="pages/blog.html"><b>Blog</b></a></li>
+
+            </ul>
+            <a href="#loginbo">
+                <input class="search" onclick="showlogin()" type="button" value="LogIn">
+            </a>
+        </nav>
+        <!-- Home section -->
+        <section id="home">
+            <h1 class="h-primary center">Welcome to Print World</h1>
+            <p style="font-family: 'Quicksand', sans-serif;">"The printing press did something really big for the world
+                when everyone </p>
+            <p style="font-family: 'Quicksand', sans-serif;">could get books in their hands and read." -Kevin Systrom
+            </p> <br>
+            <button class="btn">
+                <a href="pages/products.html">Order Now</a>
+            </button>
+        </section>
+    </div>
+
+    <!-- Featured Products section -->
+    <section id="feature-product">
+        <h1 class="h-primary center">Featured Products</h1>
+        <div class="fproducts">
+            <a href="pages/products.html#LaserPrinter">
+                <div class="box">
+                    <img src="images/laser.png">
+                    <div class="desc">
+                        <h5>Laser Printer</h5>
+                    </div>
+                </div>
+            </a>
+            <a href="pages/products.html#InkjetPrinter">
+                <div class="box">
+                    <img src="images/inkjet.png">
+                    <div class="desc">
+                        <h5>Inkjet Printer</h5>
+                    </div>
+                </div>
+            </a>
+            <a href="pages/products.html#MobilePrinter">
+                <div class="box">
+                    <img src="images/mobile.png">
+                    <div class="desc">
+                        <h5>Mobile Printer</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Latest Product section -->
+    <h1 class="h-primary center"
+        style="display: flex; justify-content: center; text-align: center; padding-bottom: 20px;">
+        Latest Product</h1>
+    <section class="soon" style="width: 100%; height: 100vh;background-color: rgba(1, 1, 26, 0.05);">
+
+        <div class="cproduct" style="display: flex; width: 100%; height: 50%;">
+            <div
+                style="width: 50%; background-image: url(images/3d\ printer.jpg); background-size: cover; background-position: center;">
+                <!-- <img src="images/3d printer.jpg" width="100%" height="100%"> -->
+            </div>
+            <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+                <b>
+                    <!-- <p>3D Printer</p> -->
+                    <p style="font-family: 'Tektur', sans-serif;">Coming soon....</p>
+                </b>
+            </div>
+        </div>
+        <!-- Content for another upcoming product -->
+        <div class="cproduct" style="display: flex; width:100%; height: 50%;">
+            <div style="width: 50%; display: flex; justify-content: center; align-items: center;">
+                <b>
+                    <p style="font-family: 'Tektur', sans-serif;">3d Printer</p>
+
+                </b>
+            </div>
+            <div class="cproduct_img" style="width: 50%; background-image: url(images/3d\ printer\ 2.jpg);">
+
+            </div>
+        </div>
+    </section>
+    <!-- Client Reviews section -->
+    <section class="three">
+        <div class="clientpage">
+
+            <div class="second">
+                <div class="text">
+                    <h2>Our Clients</h2>
+                </div>
+                <div class="brands">
+                    <img src="images/esewa1.png" alt="esewa">
+                    <img src="images/goldstar.png" alt="goldstar">
+                    <img src="images/khalti.png" alt="khalti">
+                    <img src="images/suryanepal.png" alt="suryanepal">
+                    <img src="images/connectips.png" alt="connectips">
+                </div>
+
+                <!-- Number animation section -->
+                <div class="num_anim">
+                    <div>
+                        <span style="--from :0; --to:1000;" class="num_text"></span>
+                        <span>Clients</span>
+                    </div>
+                    <div>
+                        <span class="num_text" style="--from :0; --to:2342;"></span>
+                        <span>Shipments</span>
+                    </div>
+                    <div>
+                        <span class="num_text" style="--from :0; --to:1087;"></span>
+                        <span>Brand Collabs</span>
+                    </div>
+                    <div>
+                        <span class="num_text" style="--from :0; --to:50;"></span>
+                        <span>Store</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Customer Reviews section -->
+    <section class="four">
+        <h1>Customer's <span>Review</span></h1>
+        <!-- Review figures with customer testimonials -->
+        <figure class="review">
+            <blockquote>I recently purchased a printer from <b> PrintWorld </b>, and I couldn't be happier with my
+                experience. The website's layout was user-friendly, making it easy to use and buy which is really good.
+                <div class="arrow"></div>
+            </blockquote>
+            <img src="images/shrinkhala.jpg" alt="sample3" />
+            <div class="author">
+                <h5>Shrinkhala Khatiwada<span>- Gatha</span></h5>
+            </div>
+        </figure>
+        <figure class="review hover">
+            <blockquote>The product descriptions were detailed and helped me make an informed decision. The ordering
+                process was smooth, and I received regular updates on the shipping status of my purchase.
+                <div class="arrow"></div>
+            </blockquote>
+            <img src="images/balen.jpg" alt="sample47" />
+            <div class="author">
+                <h5>Balen Shah<span>- Mayor</span></h5>
+            </div>
+        </figure>
+        <figure class="review">
+            <blockquote>What impressed me the most was the excellent customer support. I had a few questions about
+                setting up the printer, and their support team was quick to respond and provided clear instructions.
+                <div class="arrow"></div>
+            </blockquote>
+            <img src="images/Saugat Malla.jpg" alt="sample17" />
+            <div class="author">
+                <h5>Saugat Malla<span>- Actor</span></h5>
+            </div>
+        </figure>
+    </section>
+
+
+    <!-- Newsletter Signup section -->
+    <section class="Five">
+        <!-- Newsletters features are present in this section -->
+        <div class="Signup" style="height: 200px; padding:80px;">
+            <div style=" float:left;font-family: 'Quicksand', sans-serif;">
+                <h1><span style="color:rgb(74, 159, 131);">Subscribe As Soon </span>As Possible</h1><br>
+                <H2>Get Recent Updates about our Products and<span style="color:brown;"><br>Win Discount Vouchers</span>
+                </H2><br>
+                <h3>Drop Down Your Email...!!</h3>
+            </div>
+
+            <div style="float: right; padding-top:60px;">
+                <p style="font-size:20px; font-family: 'Quicksand', sans-serif;"><b>Get Freshout News About Our
+                        Products</b></p><br>
+                <form id="myForm" style="display: flex; justify-content: flex-end;">
+                    <!-- Forms tag is used here -->
+                    <span id=""></span>
+                    <input
+                        style="width:300px; padding: 11px; outline: none; border: none; border-bottom: 2px solid black;"
+                        type="text" id="Email" placeholder="Type Your Email Here...">
+                    <button class="sub"
+                        style=" cursor:pointer; padding: 12px 30px; width:140px; outline: none; border: 2px solid black; font-family: 'Quicksand', sans-serif;  margin-left: -15px; transition: all 0.6s;">
+                        <h4><a name="Subscribe">Subscribe</a></h4>
+                    </button>
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+    <!-- Login form popup -->
+    <div class="loginbo" id="loginbo">
+        <div class="loginform">
+            <input type="checkbox" id="chk" aria-hidden="true">
+            <!-- Signup form -->
+            <div class="signup">
+                <form name="ContactsForms" class="signin" onsubmit=" validation(event)">
+                    <label for="chk" aria-hidden="true">Sign up</label>
+                    <input type="text" name="txt" id="username" placeholder="User name">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                    <input type="password" name="pswd" id="password" placeholder="Password">
+                    <button type="sumbit">Sign up</button>
+                </form>
+            </div>
+
+            <!-- Login form -->
+            <div class="login">
+                <form name="LContactsForms" onsubmit="valid(event)">
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <input type="email" id="logemail" placeholder="Email">
+                    <input type="password" id="logpass" placeholder="Password">
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JavaScript for the login form popup -->
+    <script>
+        let loginbo = document.querySelector(".loginbo")
+        function showlogin() {
+            loginbo.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+        loginbo.addEventListener("click", () => {
+            loginbo.style.display = "none";
+            document.body.style.overflow = "scroll";
+        })
+        document.querySelector(".loginform").addEventListener("click", (e) => {
+            e.stopPropagation()
+        })
+    </script>
+
+
+    <!-- Footer section starts here -->
+
+    <footer>
+        <!-- Footer section starts here -->
+        <div style=" color:whitesmoke;padding-bottom: 30px; background-color:rgb(0, 0, 0); display:flex;">
+
+            <!-- About Us section in the footer -->
+            <div class="rent">
+                <h4 class="footerh"> About Us</h4>
+                <!-- Allocation of h4 tag -->
+                <p style="margin-top: 60px;">
+                    Print World is all about giving updates of Newly Available Printers and Selling Products based on
+                    those updates. We also sell Printers that have market demands holding over long time.We also
+                    maintain plethora supply of Printers.
+                    People are being Sophiscated day to day so we have a freeshipping services to the customer doors as
+                    well but it is limited upto Valley Areas.
+                    Out of Valley, We charge a shipping costs on the basis of locations.
+                </p>
+
+            </div>
+
+            <!-- Address section in the footer -->
+            <div class="rent">
+                <h4 class="footerh">Address</h4>
+                <p style="margin-top: 30px;">
+                    <span style="padding-left:10px;">We are located at</span><br>
+                    1. Ganesh Chowk,Budhanilkantha near IME <br>
+                    2. Bhatbhateni, Chakrapath<br>
+                    3. StarMall ,Putalisadak <br>
+                    4. Dilibazar on the east of Global Consultancy<br>
+                    5. Maitighar<br>
+                    6. DurbarMarg nearby Narayanhiti Palace<br>
+                    7. Jamal side around Delicious Momo Pasal<br>
+                </p>
+
+
+            </div>
+
+            <!-- Overview section in the footer -->
+            <div class="rent">
+                <h4 class="footerh">Overview</h4>
+                <a href="index.html">Home</a>
+                <a href="pages/products.html">Products</a>
+                <a href="pages/blog.html">Blog</a>
+                <a href="pages/research.html">Research</a>
+                <a href="pages/contacts.html">Contacts</a>
+            </div>
+
+            <!-- Follow Us section in the footer -->
+            <div class="rent">
+                <h4 class="footerh">Follow Us</h4>
+                <div style="margin-top: 50px; display: flex; flex-direction: column;">
+                    <a href="https://www.facebook.com/">Facebook</a>
+                    <a href="https://www.instagram.com/?hl=en">Instagram</a>
+                    <a href="https://twitter.com/i/flow/login">Twitter</a>
+                    <a href="https://www.whatsapp.com/">WhatsApps</a>
+                    <a href="https://www.viber.com/en/">Viber</a>
+                    <a href="https://np.linkedin.com/">LinkedIn</a>
+                    <a href="https://www.youtube.com/">YouTube</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>

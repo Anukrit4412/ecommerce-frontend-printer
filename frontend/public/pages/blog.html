@@ -1,0 +1,640 @@
+<head>
+    <meta name="description" content="Blog Page of PrintWorld"> <!-- meta tag used-->
+    <meta name="keywords" content="Blog Page of PrintWorld">
+    <meta name="author" content="Sanidhya Kafle">
+    <title>Print World</title>
+
+    <!--Linking external CSS and JS-->
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/script.js"></script>
+
+    <style>
+        /*logo designing*/
+        #logo {
+            margin-left: 34px;
+            zoom: 0.8;
+        }
+
+        #logo img {
+            margin: 3px 6px;
+        }
+
+        .logo {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        /* Styling for the navigation bar */
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            height: auto;
+            width: 100%;
+            align-items: center;
+            position: fixed;
+            top: 0px;
+            z-index: 3;
+            font-family: 'Quicksand', sans-serif;
+            padding: 10px;
+        }
+
+        #navbar ul {
+            display: flex;
+        }
+
+        #navbar ul li {
+            list-style: none;
+            font-size: 1.5rem;
+        }
+
+        #navbar ul li a {
+            display: block;
+            padding: 3px 30px;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.811);
+            border-radius: 12px;
+            height: 30px;
+            transition: all 0.2s;
+        }
+
+        #navbar ul li a:hover {
+            color: rgb(255, 255, 255);
+            scale: 1.2;
+
+        }
+
+        #navbar::before {
+            content: "";
+            background-color: black;
+            height: 100%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .search {
+            background: transparent;
+            outline: none;
+            padding: 10px 30px;
+            margin-right: 50px;
+            color: white;
+            border: 1px solid white;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: rgb(0, 0, 0);
+            box-shadow: 3px 3px 0px white;
+            transition: all 0.2s;
+
+        }
+
+        .search:hover {
+            color: white;
+            box-shadow: 0px 0px 0px;
+
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Blog page styles */
+        .blogpage {
+            width: 100%;
+            height: auto;
+            padding: 20px;
+            font-family: system-ui;
+            background: rgb(228, 255, 228);
+            margin-top: 100px;
+
+
+        }
+
+        /* Header/Blog Title */
+        .blogpage .header {
+            padding: 30px;
+            font-size: 40px;
+            text-align: center;
+            background: white;
+        }
+
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .blogpage .leftcolumn {
+            float: left;
+            width: 75%;
+        }
+
+        /* Right column */
+        .blogpage .rightcolumn {
+            float: left;
+            width: 25%;
+            padding-left: 20px;
+        }
+
+        /* Fake image */
+        .blogpage .fakeimg {
+            background-color: #aaa;
+            width: 100%;
+            margin: 40px 0px;
+        }
+
+        /* Add a card effect for articles */
+        .blogpage .card {
+            background-color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Clear floats after the columns */
+        .blogpage .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .blogpage .display {
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .blogpage .left-side {
+            padding: 50px;
+        }
+
+        .blogpage .right-side {
+            padding: 50px;
+        }
+
+        .blogpage #check {
+            display: none;
+        }
+
+        .blogpage .content {
+            display: none;
+            transition: .5s linear;
+        }
+
+        .blogpage label {
+            display: inline-block;
+            margin-top: 15px;
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .blogpage #check:checked~.content {
+            display: block;
+        }
+
+        .blogpage #check:checked~label {
+            visibility: hidden;
+        }
+
+        .blogpage #check:checked~label:after {
+            content: 'Show Less';
+            display: block;
+            visibility: visible;
+        }
+
+        .blogpage #checks {
+            display: none;
+        }
+
+        .blogpage .content2 {
+            display: none;
+            transition: .5s linear;
+        }
+
+        .blogpage #checks:checked~.content2 {
+            display: block;
+        }
+
+        /* Styles for the blog post cards, columns, and images */
+        .blogpage #checks:checked~label {
+            visibility: hidden;
+        }
+
+        /* Styles for handling "Read More" sections */
+        .blogpage #checks:checked~label:after {
+            content: 'Show Less';
+            display: block;
+            visibility: visible;
+        }
+
+        /* Styling for the popular post section */
+        .popular {
+            width: 100%;
+            height: 250px;
+            background: black;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <div class="main">
+        <nav id="navbar">
+            <div id="logo">
+                <img src="../images/logo.png" class="logo">
+                <!-- logo of our website -->
+            </div>
+            <ul>
+                <!-- listing menus in the navbar -->
+                <li><a href="../home.html"><b>Home</b></a></li>
+                <li><a href="../html/products.html"><b>Products</b></a></li>
+                <li><a href="../html/research.html"><b>Research</b></a></li>
+                <li><a href="../html/aboutus.html"><b>About Us</b></a></li>
+                <li><a href="../html/blog.html"><b>Blog</b></a></li>
+
+            </ul>
+            <a href="#loginbo">
+                <input class="search" onclick="showlogin()" type="button" value="LogIn">
+            </a>
+        </nav>
+    </div>
+
+    <!-- Blog page content -->
+    <div class="blogpage">
+
+
+        <div class="header">
+            <h2>Blog Posts</h2>
+        </div>
+
+        <div class="row">
+            <div class="leftcolumn">
+                <div class="card">
+                    <h2>Welcome To The technological world!</h2>
+                    <h5>Mukesh Bhusal, Dec 7, 2024</h5>
+                    <div class="fakeimg"
+                        style="height:200px; background-image: url('../images/images.jpg');background-size: contain;">
+                    </div>
+                    <p>Welcome to the world of technology, where development and creativity
+                        impact all facets of our daily lives. Information technology is the backbone
+                        of this dynamic field, mixing computer systems, networks, and software that can
+                        manage and process immense amounts of data. A key aspect is software development,
+                        which is the process of creating the apps that run on our computers and smartphones.
+                        The worldwide network known as the internet gives us access to a multitude of materials
+                        and makes communication easy. Cybersecurity includes security measures that prevent assaults
+                        and unauthorized access. Machine learning and artificial intelligence give machines
+                        intelligence, enabling them to grow and change. Blockchain guarantees safe and transparent
+                        transactions, while
+                        data science makes sense of large, complicated information. Our interactions with the
+                        environment are redefined by augmented and virtual reality, and robots</p>
+                </div>
+                <div class="card">
+                    <h2>Impact of technology </h2>
+                    <h5>Binod Thakur, Sep 2, 2017</h5>
+                    <div class="fakeimg"
+                        style="height:200px; background-image: url('../images/images1.jpg' ); background-size: contain; ">
+                    </div>
+                    <div class="container">
+                        <div class="display">
+
+
+                            <div class="left-side">
+                                <input type="checkbox" id="check">
+                                <h1>Negative Impact</h1>
+                                <p>
+                                    The rapid advancement of technology has undeniably brought about transformative
+                                    changes
+                                    to our
+                                    lives, but it has also ushered in a host of negative consequences. One glaring issue
+                                    is
+                                    the
+                                    displacement of jobs as automation and artificial intelligence take over routine
+                                    tasks,
+                                    leading
+                                    to unemployment and economic disparities. Moreover, the pervasive use of technology
+                                    for
+                                    communication has given rise to social isolation, with individuals spending more
+                                    time
+                                    engrossed
+                                    in digital interfaces than fostering meaningful face-to-face connections. Privacy
+                                    concerns loom
+                                    large as personal information becomes increasingly vulnerable to data breaches and
+                                    surveillance,
+                                    heightening the risks of identity theft. The health toll of extended screen time is
+                                    evident,
+                                    contributing to physical ailments such as eye strain and sedentary lifestyles.
+                                <div class="content">
+                                    Environmental
+                                    repercussions accompany the production and disposal of electronic devices, as
+                                    e-waste
+                                    poses a
+                                    threat to ecosystems and human health. Additionally, the addictive nature of
+                                    technology,
+                                    particularly in the realm of social media, has given rise to mental health issues,
+                                    such
+                                    as
+                                    anxiety and depression. Ethical concerns surrounding the development and deployment
+                                    of
+                                    advanced
+                                    technologies further complicate the landscape, demanding careful consideration and
+                                    regulation to
+                                    address issues like bias, misinformation, and misuse. As we navigate this digital
+                                    era,
+                                    it
+                                    becomes crucial to strike a balance between technological progress and the
+                                    mitigation of
+                                    its
+                                    adverse impacts on society.
+                                </div>
+
+                                </p>
+                                <label for="check"> Read More</label>
+
+                            </div>
+                            <div class="right-side">
+                                <input type="checkbox" id="checks">
+                                <h1>Positive Impact</h1>
+                                <p>
+                                    Technology has undeniably revolutionized various facets of our lives, ushering in an
+                                    era
+                                    of
+                                    unprecedented connectivity, efficiency, and innovation. One of the most significant
+                                    positive
+                                    impacts lies in the realm of communication, where the advent of the internet and
+                                    social
+                                    media
+                                    has facilitated instantaneous global connectivity, fostering relationships and
+                                    enabling
+                                    the
+                                    exchange of ideas on an unprecedented scale.
+                                    Technological advancements have also
+                                    significantly
+                                    enhanced productivity and efficiency across industries, streamlining processes and
+                                    introducing
+                                    automation to perform routine tasks. In the healthcare sector, technology has led to
+                                    breakthroughs in medical research, improved diagnostics, and more personalized
+                                    treatments,
+                                    ultimately saving lives and improving the quality of healthcare.
+                                <div class="content2">
+                                    Education has been
+                                    democratized
+                                    through online platforms, providing accessible learning opportunities to people
+                                    around
+                                    the
+                                    world. Additionally, technology has empowered individuals with tools for creativity
+                                    and
+                                    self-expression, from digital art and music production to content creation. The
+                                    positive
+                                    impact
+                                    of technology extends to environmental sustainability as well, with innovations
+                                    promoting
+                                    cleaner energy sources and efficient resource management. Overall, technology has
+                                    become
+                                    an
+                                    integral part of our daily lives, offering transformative solutions that enhance
+                                    communication,
+                                    efficiency, and overall well-being.
+
+                                </div>
+                                </p>
+
+
+                                <label for="checks"> Read More</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <h2>Future of Technology</h2>
+                    <h5>Binod Thakur, Sep 2, 2017</h5>
+                    <div class="fakeimg"
+                        style="height:200px; background-image: url('../images/future.jpg');background-size: contain;">
+                    </div>
+                    <p>The future of technology holds the promise of continued innovation and transformative changes
+                        across
+                        various domains. Emerging technologies such as artificial intelligence, quantum computing, and
+                        advanced robotics are poised to reshape industries, unlocking new possibilities for efficiency,
+                        problem-solving, and discovery. The integration of 5G networks is set to revolutionize
+                        connectivity,
+                        enabling faster and more reliable communication, while the Internet of Things (IoT) will further
+                        connect and automate devices, creating a more interconnected and intelligent world.
+                        Biotechnology
+                        and genomics are anticipated to play a pivotal role in personalized medicine, revolutionizing
+                        healthcare by tailoring treatments to individual genetic profiles. Augmented reality (AR) and
+                        virtual reality (VR) are expected to redefine the way we interact with our surroundings and
+                        consume
+                        information, impacting fields from education to entertainment. Sustainable technologies,
+                        including
+                        advancements in renewable energy and eco-friendly practices, are likely to take center stage as
+                        the
+                        global community grapples with environmental challenges. Ethical considerations will become
+                        increasingly crucial, necessitating responsible development and deployment of technologies to
+                        address concerns like privacy, bias, and security. As we look ahead, the future of technology
+                        appears to be a dynamic landscape, offering both opportunities and challenges that will shape
+                        the
+                        way we live, work, and interact with the world.</p>
+                </div>
+
+
+            </div>
+            <div class="rightcolumn">
+                <div class="card">
+                    <h2>Trending</h2>
+                    <div class="fakeimg"
+                        style="height:150px; background-image: url('../images/omegle.jpg');background-repeat: no-repeat; background-size: cover; background-position: bottom;">
+                    </div>
+                    <p style="text-decoration: underline; color: blue;">Tech News Today: Omegle shutdown, Samsung mixed
+                        reality headset, Diwali sale, and more</p>
+
+                    <div class="fakeimg"
+                        style="height:200px;  background-image: url('../images/instagram-ar-filters.jpg');background-repeat: no-repeat; background-size: cover;">
+                    </div>
+                    <p style="text-decoration: underline; color: blue;">Instagram announces AR effects, trending,
+                        recommendations in Templates</p>
+
+                    <div class="fakeimg"
+                        style="height:200px; background-image: url('../images/hackers.jpg');background-repeat: no-repeat; background-size: cover; ">
+                    </div>
+                    <p style="text-decoration: underline; color: blue;">Hackers changed tactics, went cross-platform in
+                        2022, says Trend Micro</p>
+
+                    <div class="fakeimg"
+                        style="height:200px; background-image: url('../images/meta.jpg');background-repeat: no-repeat; background-size: cover;">
+                    </div>
+                    <p style=" text-decoration: underline; color: blue;">Meta releases list of top trending topics on
+                        Facebook and Instagram for 2021</p>
+                </div>
+                <div class="card">
+                    <h3>Popular Post</h3>
+                    <div class="popular"
+                        style="background-image: url('../images/meme.webp') ; background-repeat: no-repeat; background-size: cover;">
+                    </div>
+                    <br>
+                    <div class=" popular"
+                        style="background-image: url('../images/blackpanther.webp') ; background-repeat: no-repeat; background-size: cover; height: 300px;">
+                    </div>
+
+                </div>
+                <div class="card">
+                    <h3>Follow Us...</h3>
+                    <p style="color: blue;">Facebook</p>
+                    <p style="color: red;">Instagram</p>
+                    <p style="color: rgb(255, 179, 0);">SnapChat</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Section for newsletter subscription -->
+
+    <section class="Five">
+        <!-- Newsletters features are present in this section -->
+        <div class="Signup" style="height: 200px; padding:80px;">
+            <div style=" float:left;font-family: 'Quicksand', sans-serif;">
+                <h1><span style="color:rgb(74, 159, 131);">Subscribe As Soon </span>As Possible</h1><br>
+                <H2>Get Recent Updates about our Products and<span style="color:brown;"><br>Win Discount
+                        Vouchers</span>
+                </H2><br>
+                <h3>Drop Down Your Email...!!</h3>
+            </div>
+
+            <div style="float: right; padding-top:60px;">
+                <p style="font-size:20px; font-family: 'Quicksand', sans-serif;"><b>Get Freshout News About Our
+                        Products</b></p><br>
+                <form id="myForm" style="display: flex; justify-content: flex-end;">
+                    <!-- Forms tag is used here -->
+                    <span id=""></span>
+                    <input
+                        style="width:300px; padding: 11px; outline: none; border: none; border-bottom: 2px solid black;"
+                        type="text" id="Email" placeholder="Type Your Email Here...">
+                    <button class="sub"
+                        style=" cursor:pointer; padding: 12px 30px; width:140px; outline: none; border: 2px solid black; font-family: 'Quicksand', sans-serif;  margin-left: -15px; transition: all 0.6s;">
+                        <h4><a name="Subscribe">Subscribe</a></h4>
+                    </button>
+
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+    <!-- Login form popup -->
+    <div class="loginbo" id="loginbo">
+        <div class="loginform">
+            <input type="checkbox" id="chk" aria-hidden="true">
+            <!-- Signup form -->
+            <div class="signup">
+                <form name="ContactsForms" class="signin" onsubmit=" validation(event)">
+                    <label for="chk" aria-hidden="true">Sign up</label>
+                    <input type="text" name="txt" id="username" placeholder="User name">
+                    <input type="email" name="email" id="email" placeholder="Email">
+                    <input type="password" name="pswd" id="password" placeholder="Password">
+                    <button type="sumbit">Sign up</button>
+                </form>
+            </div>
+
+            <!-- Login form -->
+            <div class="login">
+                <form name="LContactsForms" onsubmit="valid(event)">
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <input type="email" id="logemail" placeholder="Email">
+                    <input type="password" id="logpass" placeholder="Password">
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <!-- Footer section starts here -->
+        <div
+            style=" color:whitesmoke;padding-bottom: 30px; background-color:rgb(0, 0, 0); display:flex; width: 100%; margin-top: 150px;">
+
+            <div class="rent">
+                <h4 class="footerh"> About Us</h4>
+                <!-- Allocation of h4 tag -->
+                <p style="margin-top: 60px;">
+                    Print World is all about giving updates of Newly Available Printers and Selling Products based
+                    on
+                    those updates. We also sell Printers that have market demands holding over long time.We also
+                    maintain plethora supply of Printers.
+                    People are being Sophiscated day to day so we have a freeshipping services to the customer doors
+                    as
+                    well but it is limited upto Valley Areas.
+                    Out of Valley, We charge a shipping costs on the basis of locations.
+                </p>
+
+            </div>
+
+            <!-- Address section in the footer -->
+            <div class="rent">
+                <h4 class="footerh">Address</h4>
+                <p style="margin-top: 30px;">
+                    <span style="padding-left:10px;">We are located at</span><br>
+                    1. Ganesh Chowk,Budhanilkantha near IME <br>
+                    2. Bhatbhateni, Chakrapath<br>
+                    3. StarMall ,Putalisadak <br>
+                    4. Dilibazar on the east of Global Consultancy<br>
+                    5. Maitighar<br>
+                    6. DurbarMarg nearby Narayanhiti Palace<br>
+                    7. Jamal side around Delicious Momo Pasal<br>
+                </p>
+
+
+            </div>
+
+            <!-- Overview section in the footer -->
+            <div class="rent">
+                <h4 class="footerh">Overview</h4>
+                <a href="../home.html">Home</a>
+                <a href="../html/products.html">Products</a>
+                <a href="../html/blog.html">Blog</a>
+                <a href="../html/research.html">Research</a>
+                <a href="../html/contacts.html">Contacts</a>
+            </div>
+
+            <!-- Follow Us section in the footer -->
+            <div class="rent">
+                <h4 class="footerh">Follow Us</h4>
+                <div style="margin-top: 50px; display: flex; flex-direction: column;">
+                    <a href="https://www.facebook.com/">Facebook</a>
+                    <a href="https://www.instagram.com/?hl=en">Instagram</a>
+                    <a href="https://twitter.com/i/flow/login">Twitter</a>
+                    <a href="https://www.whatsapp.com/">WhatsApps</a>
+                    <a href="https://www.viber.com/en/">Viber</a>
+                    <a href="https://np.linkedin.com/">LinkedIn</a>
+                    <a href="https://www.youtube.com/">YouTube</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- JavaScript for the login form popup -->
+    <script>
+        let loginbo = document.querySelector(".loginbo")
+        function showlogin() {
+            loginbo.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+        loginbo.addEventListener("click", () => {
+            loginbo.style.display = "none";
+            document.body.style.overflow = "scroll";
+        })
+        document.querySelector(".loginform").addEventListener("click", (e) => {
+            e.stopPropagation()
+        })
+    </script>
+</body>
+
+</html>
